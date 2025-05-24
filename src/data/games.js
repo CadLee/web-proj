@@ -1,7 +1,6 @@
-import games from '../data/games.json'
+import games from './games.json'
 
 export function getTrendingGames() {
-  // Return first 3 games as trending (customize as needed)
   return games.slice(0, 3)
 }
 

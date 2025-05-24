@@ -33,7 +33,7 @@
   <script setup>
   import { ref, computed, onMounted } from 'vue'
   import GameCard from '../components/GameCard.vue'
-  import { getAllGames } from '../api/games'
+  import { getAllGames } from '../data/games'
   
   const games = ref([])
   const search = ref('')

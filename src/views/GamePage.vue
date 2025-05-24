@@ -37,7 +37,7 @@
   <script setup>
   import { ref, onMounted } from 'vue'
   import { useRoute, useRouter } from 'vue-router'
-  import { getGameById } from '../api/games'
+  import { getGameById } from '../data/games'
   import { useCartStore } from '../stores/cart'
   import { useWishlistStore } from '../stores/wishlist'
   import CommentSection from '../components/CommentSection.vue'

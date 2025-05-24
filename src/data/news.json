@@ -33,6 +33,41 @@
       "title": "Community Event",
       "content": "Join us for our upcoming community event!",
       "category": "Promotion"
+    },
+    {
+      "id": 6,
+      "date": "2025-04-28",
+      "title": "Game Review",
+      "content": "Read our latest review of the new RPG game.",
+      "category": "Release"
+    },
+    {
+      "id": 7,
+      "date": "2025-04-25",
+      "title": "Developer Interview",
+      "content": "An exclusive interview with the developers of the latest game.",
+      "category": "Promotion"
+    },
+    {
+      "id": 8,
+      "date": "2025-04-20",
+      "title": "Game Trailer",
+      "content": "Watch the trailer for the upcoming action game.",
+      "category": "Promotion"
+    },
+    {
+      "id": 9,
+      "date": "2025-04-15",
+      "title": "Patch Notes",
+      "content": "Check out the latest patch notes for our games.",
+      "category": "Update"
+    },
+    {
+      "id": 10,
+      "date": "2025-04-10",
+      "title": "Game Giveaway",
+      "content": "Participate in our game giveaway event!",
+      "category": "Promotion"
     }
   ]
   

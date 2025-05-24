@@ -22,7 +22,7 @@
   <script setup>
   import { ref, onMounted } from 'vue'
   import GameCard from '../components/GameCard.vue'
-  import { getTrendingGames } from '../api/games'
+  import { getTrendingGames } from '../data/games'
   
   const trendingGames = ref([])
   onMounted(async () => {
