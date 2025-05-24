@@ -1,41 +1,54 @@
 <template>
-    <div>
-      <div v-if="isAuthenticated">
-        <form @submit.prevent="addComment">
-          <textarea v-model="newComment" class="form-control mb-2" placeholder="Add a comment..." required></textarea>
-          <button class="btn btn-primary btn-sm" type="submit">Post</button>
-        </form>
-      </div>
-      <ul class="list-group mt-3">
-        <li v-for="(comment, idx) in comments" :key="idx" class="list-group-item d-flex justify-content-between align-items-center">
-          <span>{{ comment.user }}: {{ comment.text }}</span>
-          <button v-if="comment.user === currentUser" class="btn btn-danger btn-sm" @click="deleteComment(idx)">Delete</button>
-        </li>
-      </ul>
+  <div class="mt-4">
+    <h5>Comments</h5>
+    <div v-if="isAuthenticated">
+      <form @submit.prevent="addComment" class="mb-3">
+        <textarea v-model="commentText" class="form-control mb-2" required placeholder="Write a comment..."></textarea>
+        <button class="btn btn-primary btn-sm" type="submit">Post Comment</button>
+      </form>
     </div>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue'
-  import { useAuthStore } from '../stores/auth'
-  const props = defineProps(['gameId'])
-  const auth = useAuthStore()
-  const isAuthenticated = auth.isAuthenticated
-  const currentUser = auth.user?.username || 'Guest'
-  
-  const comments = ref([]) // Load from localStorage or backend
-  const newComment = ref('')
-  
-  const addComment = () => {
-    if (newComment.value.trim()) {
-      comments.value.push({ user: currentUser, text: newComment.value })
-      newComment.value = ''
-      // Save to localStorage or backend
-    }
-  }
-  const deleteComment = (idx) => {
-    comments.value.splice(idx, 1)
-    // Update storage
-  }
-  </script>
-  
+    <div v-else>
+      <p><router-link to="/login">Login</router-link> to comment.</p>
+    </div>
+    <div v-for="comment in comments" :key="comment.id" class="card mb-2">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <strong>{{ comment.user }}</strong>
+          <small>{{ comment.date }}</small>
+        </div>
+        <p class="mb-1">{{ comment.text }}</p>
+        <button v-if="canDelete(comment)" @click="deleteComment(comment.id)" class="btn btn-danger btn-sm">Delete</button>
+      </div>
+    </div>
+  </div>
+</template>
+<script setup>
+import { ref, computed } from 'vue'
+import { useStore } from 'vuex'
+import { useRoute } from 'vue-router'
+const props = defineProps(['gameId'])
+const store = useStore()
+const route = useRoute()
+const commentText = ref('')
+const isAuthenticated = computed(() => store.getters['auth/isAuthenticated'])
+const user = computed(() => store.getters['auth/user'])
+const comments = computed(() => store.getters['games/getCommentsByGame'](props.gameId))
+function addComment() {
+  if (!commentText.value) return
+  store.commit('games/ADD_COMMENT', {
+    id: Date.now(),
+    gameId: props.gameId,
+    user: user.value.name,
+    userId: user.value.id,
+    text: commentText.value,
+    date: new Date().toLocaleString()
+  })
+  commentText.value = ''
+}
+function canDelete(comment) {
+  return user.value && comment.userId === user.value.id
+}
+function deleteComment(id) {
+  store.commit('games/DELETE_COMMENT', id)
+}
+</script>

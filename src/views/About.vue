@@ -1,58 +1,61 @@
 <template>
-    <div class="container mt-4">
-      <h2>About GameStore</h2>
-      <p>GameStore a prototype webservice that aims to get netizens to see what upcoming video games are trending and serves as a middle man to help them buy various games online. The service aims to be a webpage where I will showcase my own games in the future.</p>
-      <form @submit.prevent>
-        <div class="row mb-4">
-        
-            <div class="col mb-1">
-                <label>First Name:</label>
-                <input v-model="firstName" class="form-control" />
-            </div>
-
-            <div class="col mb-1">
-                <label>Last Name:</label>
-                <input v-model="lastName" class="form-control" />
-            </div>
-
-            <div class="col mb-2">
-            </div>
-            
+  <div class="container mt-4" style="margin-top: 80px !important;">
+    <h2 class="mb-4">About Game Store</h2>
+    <p>
+      Game Store is your one-stop platform for discovering, wishlisting, and purchasing the latest games. Stay tuned for more features!
+    </p>
+    <form class="mb-4" @submit.prevent>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label" for="firstName">First Name</label>
+        <div class="col-sm-10">
+          <input v-model="firstName" id="firstName" class="form-control" placeholder="Enter your first name" />
         </div>
-        <div class="row mb-2">
-            <div v-if="firstName && lastName" class="mt-3">
-                        <h4>Welcome {{ firstName }} {{ lastName }}!</h4>
-                    </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label" for="lastName">Last Name</label>
+        <div class="col-sm-10">
+          <input v-model="lastName" id="lastName" class="form-control" placeholder="Enter your last name" />
         </div>
-        <div class="row mb-4">
-            <div class="col mb-1">
-                <label>Choose an image:</label>
-                
-                    <div class="">
-                        <input type="radio" id="mountain" value="mountain" v-model="imageType" />
-                        <label for="mountain">Mountain</label>
-                    </div>
-                    <div class="">
-                        <input type="radio" id="ocean" value="ocean" v-model="imageType" />
-                        <label for="ocean">Ocean</label>
-                    </div>
-                    
-            </div>
-            <div class="col mb-3">
-                <div class="mt-3">
-                <img v-if="imageType==='mountain'" src="../assets/mountain.jpg" class="img-fluid" />
-                <img v-if="imageType==='ocean'" src="../assets/ocean.jpg" class="img-fluid" />
-                </div>
-            </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Choose Image</label>
+        <div class="col-sm-10">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="mountain" value="mountain" v-model="selectedImage" />
+            <label class="form-check-label" for="mountain">Mountain</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="ocean" value="ocean" v-model="selectedImage" />
+            <label class="form-check-label" for="ocean">Ocean</label>
+          </div>
         </div>
-      </form>
+      </div>
+    </form>
+    <div v-if="firstName || lastName" class="mb-4">
+      <h5>Welcome {{ fullName }}!</h5>
     </div>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue'
-  const firstName = ref('')
-  const lastName = ref('')
-  const imageType = ref('mountain')
-  </script>
-  
+    <div v-if="selectedImage">
+      <img
+        v-if="selectedImage === 'mountain'"
+        src="../assets/mountain.jpg"
+        alt="Mountain"
+        class="img-fluid rounded"
+        style="max-width: 300px;"
+      />
+      <img
+        v-else
+        src="../assets/ocean.jpg"
+        alt="Ocean"
+        class="img-fluid rounded"
+        style="max-width: 300px;"
+      />
+    </div>
+  </div>
+</template>
+<script setup>
+import { ref, computed } from 'vue'
+const firstName = ref('')
+const lastName = ref('')
+const selectedImage = ref('mountain')
+const fullName = computed(() => [firstName.value, lastName.value].filter(Boolean).join(' '))
+</script>

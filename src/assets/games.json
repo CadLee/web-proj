@@ -1,0 +1,94 @@
+[
+    {
+      "id": 1,
+      "title": "Cyber Punk 2077",
+      "price": 59.99,
+      "category": "Action",
+      "description": "Open-world RPG set in a dystopian future",
+      "image": "/cos30043/s104225535/A3/src/assets/game1.jpg",
+      "trailer": "/cos30043/s104225535/A3/src/assets/game1.mp4",
+      "tags": ["RPG", "Open World"],
+      "rating": 4.5
+    },
+    {
+      "id": 2,
+      "title": "Minecraft",
+      "price": 29.99,
+      "category": "Adventure",
+      "description": "Build interstellar empires",
+      "image": "/cos30043/s104225535/A3/src/assets/game2.jpg",
+      "trailer": "//cos30043/s104225535/A3/src/assets/game2.mp4",
+      "tags": ["Simulation", "Multiplayer","Adventure","Open World"],
+      "rating": 4.8
+    },
+    {
+      "id": 3,
+      "title": "Fantasy Quest: The Lost Kingdom",
+      "price": 49.99,
+      "category": "Adventure",
+      "description": "Embark on a magical journey to save the kingdom",
+      "image": "/images/fantasy.jpg",
+      "trailer": "/trailers/fantasy.mp4",
+      "tags": ["RPG", "Adventure"],
+      "rating": 4.7
+    },
+    {
+      "id": 4,
+      "title": "Zombie Apocalypse Survival",
+      "price": 29.99,
+      "category": "Horror",
+      "description": "Survive in a world overrun by zombies",
+      "image": "/images/zombie.jpg",
+      "trailer": "/trailers/zombie.mp4",
+      "tags": ["Survival", "Horror"],
+      "rating": 4.2
+    }
+    ,
+    {
+      "id": 5,
+      "title": "Racing Legends: Nitro Rush",
+      "price": 39.99,
+      "category": "Racing",
+      "description": "Fast-paced racing game with stunning graphics",
+      "image": "/images/racing.jpg",
+      "trailer": "/trailers/racing.mp4",
+      "tags": ["Racing", "Multiplayer"],
+      "rating": 4.6
+    },
+    {
+      "id": 6,
+      "title": "Puzzle Master: Brain Teasers",
+      "price": 19.99,
+      "category": "Puzzle",
+      "description": "Challenging puzzles to test your brain",
+      "image": "/images/puzzle.jpg",
+      "trailer": "/trailers/puzzle.mp4",
+      "tags": ["Puzzle", "Casual"],
+      "rating": 4.3
+    }
+    ,
+    {
+      "id": 7,
+      "title": "Sports Champions: Ultimate Team",
+      "price": 49.99,
+      "category": "Sports",
+      "description": "Join the ultimate sports team and compete",
+      "image": "/images/sports.jpg",
+      "trailer": "/trailers/sports.mp4",
+      "tags": ["Sports", "Multiplayer"],
+      "rating": 4.4
+    },
+    {
+      "id": 8,
+      "title": "Mystery Manor: Hidden Secrets",
+      "price": 24.99,
+      "category": "Puzzle",
+      "description": "Solve mysteries in a haunted manor",
+      "image": "/images/mystery.jpg",
+      "trailer": "/trailers/mystery.mp4",
+      "tags": ["Puzzle", "Adventure"],
+      "rating": 4.1
+    }
+  ]
+  
+  
