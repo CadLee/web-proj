@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "date": "2025-05-20",
+      "title": "New Game Release",
+      "content": "Check out the latest release in our store!",
+      "category": "Release"
+    },
+    {
+      "id": 2,
+      "date": "2025-05-18",
+      "title": "Store Update",
+      "content": "We have improved our filtering system.",
+      "category": "Update"
+    },
+    {
+      "id": 3,
+      "date": "2025-05-15",
+      "title": "Game Sale",
+      "content": "Don't miss our weekend sale on selected games!",
+      "category": "Promotion"
+    },
+    {
+      "id": 4,
+      "date": "2025-05-10",
+      "title": "New Feature",
+      "content": "We have added a new wishlist feature to the store.",
+      "category": "Update"
+    },
+    {
+      "id": 5,
+      "date": "2025-05-01",
+      "title": "Community Event",
+      "content": "Join us for our upcoming community event!",
+      "category": "Promotion"
+    }
+  ]
+  

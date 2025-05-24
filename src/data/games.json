@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "title": "Cyber Punk 2077",
+        "category": "RPG",
+        "tags": ["RPG", "Open World", "Action", "cyberpunk"],
+        "price": 49.99,
+        "cover": "/cos30043/s104225535/A3/src/assets/game1.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Minecraft",
+        "category": "Sandbox",
+        "tags": ["Sandbox", "Multiplayer", "Survival"],
+        "price": 29.99,
+        "cover": "/cos30043/s104225535/A3/src/assets/game2.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Fifa 2025",
+        "category": "Sports",
+        "tags": ["Sports", "Multiplayer", "Simulation"],
+        "price": 59.99,
+        "cover": "/cos30043/s104225535/A3/src/assets/fifa.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Black Myth: Wukong",
+        "category": "Action",
+        "tags": ["Action", "Adventure", "Fantasy"],
+        "price": 59.99,
+        "cover": "/cos30043/s104225535/A3/src/assets/black-myth.avif"
+    },
+    {
+        "id": 5,
+        "title": "Terraria",
+        "category": "Sandbox",
+        "tags": ["Sandbox", "Adventure", "Multiplayer"],
+        "price": 19.99,
+        "cover": "/cos30043/s104225535/A3/src/assets/terraria.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Balatro",
+        "category": "Card",
+        "tags": ["Card", "Roguelike", "Strategy"],
+        "price": 14.99,
+        "cover": "/cos30043/s104225535/A3/src/assets/balatro.jpg"
+    },
+    {
+        "id": 7,
+        "title": "Call of Duty: Modern Warfare",
+        "category": "FPS",
+        "tags": ["Shooter", "Multiplayer", "Action"],
+        "price": 59.99,
+        "cover": "/cos30043/s104225535/A3/src/assets/cod.webp"
+    },
+    {
+        "id": 8,
+        "title": "Stardew Valley",
+        "category": "Simulation",
+        "tags": ["Simulation", "Adventure", "Indie"],
+        "price": 14.99,
+        "cover": "/cos30043/s104225535/A3/src/assets/stardew.jpg"
+    },
+    {
+        "id": 9,
+        "title": "The Witcher 3: Wild Hunt",
+        "category": "RPG",
+        "tags": ["RPG", "Open World", "Adventure"],
+        "price": 39.99,
+        "cover": "/cos30043/s104225535/A3/src/assets/witcher.avif"
+    },
+    {
+        "id": 10,
+        "title": "Among Us",
+        "category": "Party",
+        "tags": ["Multiplayer", "Party", "Social Deduction"],
+        "price": 4.99,
+        "cover": "/cos30043/s104225535/A3/src/assets/among-us.jpeg"
+    }
+  ]
+  
