@@ -3,8 +3,9 @@
       <h2>Profile</h2>
       <div class="card mb-4">
         <div class="card-body">
-          <h5 class="card-title">{{ userData.username }}</h5>
-          <p class="card-text"><strong>Email:</strong> {{ userData.email || 'Not set' }}</p>
+            <h5 class="card-title">{{ userData.username }}</h5>
+            <p class="card-text"><strong>Email:</strong> {{ userData.email || 'Not set' }}</p>
+            <UserWallet />
         </div>
       </div>
       <h4>Purchased Games</h4>
@@ -12,7 +13,7 @@
         <div class="row">
           <div class="col-md-4 mb-3" v-for="game in purchasedGames" :key="game.id">
             <div class="card h-100">
-              <img :src="getCoverUrl(game.cover)" class="card-img-top" :alt="game.title + ' cover'" />
+              <img :src="game.cover" class="card-img-top" :alt="game.title + ' cover'" />
               <div class="card-body">
                 <h5 class="card-title">{{ game.title }}</h5>
                 <span class="badge bg-primary">{{ game.category }}</span>
@@ -38,6 +39,7 @@
   import { computed } from 'vue'
   import { useAuthStore } from '../stores/auth'
   import gamesData from '../data/games.json'
+  import UserWallet from '../components/UserWallet.vue'
   
   const auth = useAuthStore()
   
@@ -51,7 +53,5 @@
     if (!userData.value || !userData.value.purchased) return []
     return gamesData.filter(game => userData.value.purchased.includes(game.id))
   })
-  
-  const getCoverUrl = (cover) => cover ? `/assets/${cover}` : '/assets/default-cover.jpg'
   </script>
   
