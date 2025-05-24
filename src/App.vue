@@ -5,7 +5,7 @@
     <main class="flex-grow-1">
       <router-view />
     </main>
-    <footer class="bg-dark text-light text-center py-3 mt-auto">
+    <footer class="bg-light text-dark text-center py-3 mt-auto">
       &copy; 2025 Game Store. All rights reserved.
     </footer>
   </div>
