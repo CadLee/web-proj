@@ -1,9 +1,0 @@
-[
-  {
-    "id": 1,
-    "username": "testuser",
-    "email": "test@example.com",
-    "password": "Test@1234",
-    "dob": "2000-01-01"
-  }
-]

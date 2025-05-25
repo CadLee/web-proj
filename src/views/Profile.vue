@@ -1,28 +1,59 @@
 <template>
-  <div class="container mt-5" style="margin-top: 80px !important;">
-    <h2>Your Purchased Games</h2>
-    <div v-if="purchasedGames.length === 0" class="alert alert-info">
-      You have not purchased any games yet.
-    </div>
-    <div class="row">
-      <div v-for="game in purchasedGames" :key="game.id" class="col-md-4 mb-4">
-        <div class="card h-100">
-          <img :src="game.image" class="card-img-top" :alt="game.title" />
-          <div class="card-body">
-            <h5 class="card-title">{{ game.title }}</h5>
-            <p class="card-text">{{ game.description }}</p>
-            <p class="h5 text-success">${{ game.price }}</p>
-          </div>
+    <div class="container mt-4" v-if="userData">
+        <h2>Profile</h2>
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title"> {{ userData.username }}</h5>
+                <p class="card-text"><strong>Email:</strong> {{ userData.email || 'Not set' }}</p>
+                <UserWallet />
+            </div>
         </div>
-      </div>
+        <h4>Purchased Games</h4>
+        <div v-if="purchasedGames.length">
+            <div class="row">
+            <div class="col-md-4 mb-3" v-for="game in purchasedGames" :key="game.id">
+                <div class="card h-100">
+                <img :src="getCoverUrl(game.cover)" class="card-img-top" :alt="game.title + ' cover'" />
+                <div class="card-body">
+                    <h5 class="card-title">{{ game.title }}</h5>
+                    <span class="badge bg-primary">{{ game.category }}</span>
+                    <div class="mt-2">
+                    <span v-for="tag in game.tags" :key="tag" class="badge bg-secondary me-1">{{ tag }}</span>
+                    </div>
+                    <p class="card-text mt-2">${{ game.price.toFixed(2) }}</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div v-else>
+            <p>No games purchased yet.</p>
+        </div>
     </div>
-  </div>
+    <div v-else class="container mt-4">
+        <p>Please log in to view your profile.</p>
+    </div>
 </template>
-
+  
 <script setup>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
+    import { computed } from 'vue'
+    import { useAuthStore } from '../stores/auth'
+    import gamesData from '../data/games.json'
+    import UserWallet from '../components/UserWallet.vue'
+    
+    const auth = useAuthStore()
+    
+    const userData = computed(() => {
+        if (!auth.user) return null
+        const userKey = `user_${auth.user.username}`
+        return JSON.parse(localStorage.getItem(userKey))
+    })
+    
+    const purchasedGames = computed(() => {
+        if (!userData.value || !userData.value.purchased) return []
+        return gamesData.filter(game => userData.value.purchased.includes(game.id))
+    })
 
-const store = useStore()
-const purchasedGames = computed(() => store.getters['auth/purchasedGames'])
+    const getCoverUrl = (cover) => cover ? `/cos30043/s104225535/A3/${cover}` : '/cos30043/s104225535/A3/gamecover/game1.jpg'
 </script>
+  
